@@ -1,23 +1,14 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <unordered_set>
 
 struct PairHash
 {
   template <class T1, class T2>
-  std::size_t operator()(const std::pair<T1, T2>& p) const
+  size_t operator()(const std::pair<T1, T2>& p) const
   {
-    auto min = std::min(p.first, p.second);
-    auto max = std::max(p.first, p.second);
-
-    std::size_t h = 2166136261u;
-    h ^= min;
-    h *= 16777619u;
-    h ^= max;
-    h *= 16777619u;
-
-    return h;
+    auto h1 = std::hash<T1>{}(p.first);
+    auto h2 = std::hash<T2>{}(p.second);
+    return h1 ^ h2;
   }
 };
 
