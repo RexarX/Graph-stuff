@@ -2,7 +2,7 @@
 #include <vector>
 #include <queue>
  
-int bfs(int vertex, const std::vector<std::vector<int>>& matrix)
+static int bfs(int vertex, const std::vector<std::vector<int>>& matrix)
 {
   std::vector<bool> visited(matrix.size(), false);
   std::queue<int> queue;
