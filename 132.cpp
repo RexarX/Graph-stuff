@@ -8,7 +8,7 @@ struct Vertex
   int vertex;
   int weight;
 
-  bool operator>(const Vertex& other) const {
+  inline bool operator>(const Vertex& other) const {
     return weight > other.weight;
   }
 };
