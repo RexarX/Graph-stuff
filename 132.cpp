@@ -13,7 +13,8 @@ struct Vertex
   }
 };
 
-static int dijkstra(int start, int end, const std::vector<std::vector<Vertex>>& graph) {
+static int dijkstra(int start, int end, const std::vector<std::vector<Vertex>>& graph)
+{
   std::vector<int> distances(graph.size(), std::numeric_limits<int>::max());
   distances[start] = 0;
 
