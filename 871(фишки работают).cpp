@@ -36,7 +36,7 @@ int main()
     edges.emplace(u, v);
   }
 
-  edges.size() < n ? std::cout << "NO" : std::cout << "YES";
+  std::cout << (edges.size() < n ? "NO" : "YES");
 
   return 0;
 }
