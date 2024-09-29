@@ -33,7 +33,7 @@ int main()
   std::vector<std::vector<int>> graph(n, std::vector<int>(n));
   for (auto& vec : graph) {
     for (int& value : vec) {
-      std::cin >> value
+      std::cin >> value;
     }
   }
 
