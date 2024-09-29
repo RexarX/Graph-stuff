@@ -31,9 +31,9 @@ int main()
   std::cin >> n;
 
   std::vector<std::vector<int>> graph(n, std::vector<int>(n));
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < n; ++j) {
-      std::cin >> graph[i][j];
+  for (auto& vec : graph) {
+    for (int& value : vec) {
+      std::cin >> value
     }
   }
 
