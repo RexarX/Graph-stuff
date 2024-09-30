@@ -18,7 +18,7 @@ int main()
   }
  
   std::vector<int> colors(vertices);
-  for (auto& color : colors) {
+  for (int& color : colors) {
     std::cin >> color;
   }
  
