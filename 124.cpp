@@ -13,8 +13,7 @@ int main()
   int departure(0), destination(0);
   for (int i = 0; i < edges; ++i) {
     std::cin >> departure >> destination;
-    --departure;
-    --destination;
+    --departure; --destination;
     graph[departure].push_back(destination);
     graph[destination].push_back(departure);
   }
