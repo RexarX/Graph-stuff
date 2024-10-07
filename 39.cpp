@@ -18,7 +18,7 @@ int main()
     int maxProfit = 0;
     for (int sellDay = day; sellDay < n; ++sellDay) {
       int profit = prices[sellDay] * (sellDay - day + 1) + dp[sellDay + 1];
-      if (maxProfit < profit) { maxProfit =  profit; }
+      if (maxProfit < profit) { maxProfit = profit; }
     }
     dp[day] = maxProfit;
   }
