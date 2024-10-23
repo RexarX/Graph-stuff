@@ -10,8 +10,7 @@ struct Query
   int r = 0;
 };
 
-static void build_tree(std::vector<int>& tree, const std::vector<int>& arr,
-                       int node, int start, int end)
+static void build_tree(std::vector<int>& tree, const std::vector<int>& arr, int node, int start, int end)
 {
   if (start == end) {
     tree[node] = arr[start];
@@ -24,8 +23,7 @@ static void build_tree(std::vector<int>& tree, const std::vector<int>& arr,
   tree[node] = std::gcd(tree[2 * node + 1], tree[2 * node + 2]);
 }
 
-static int query_tree(const std::vector<int>& tree, int node, int start,
-                      int end, int l, int r)
+static int query_tree(const std::vector<int>& tree, int node, int start, int end, int l, int r)
 {
   if (l > end || r < start) { return 0; }
   if (l <= start && r >= end) { return tree[node]; }
@@ -40,8 +38,7 @@ static int query_tree(const std::vector<int>& tree, int node, int start,
   return std::gcd(left, right);
 }
 
-static std::vector<int> process_batch(const std::vector<int>& tree,
-                                      const std::vector<Query>& queries,
+static std::vector<int> process_batch(const std::vector<int>& tree, const std::vector<Query>& queries,
                                       int n, int start, int end)
 {
   std::vector<int> results(end - start);
@@ -83,7 +80,6 @@ int main()
   int batch_size = (m + num_threads - 1) / num_threads;
   std::vector<std::future<std::vector<int>>> futures;
   
-  // Launch async tasks
   for (int i = 0; i < m; i += batch_size) {
     int batch_end = std::min(i + batch_size, m);
     futures.push_back(std::async(
