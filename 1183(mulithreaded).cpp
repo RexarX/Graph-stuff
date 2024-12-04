@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <future>
 #include <thread>
+#include <algorithm>
 
 struct Query {
   int l = 0;
