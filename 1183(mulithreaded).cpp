@@ -3,6 +3,7 @@
 #include <future>
 #include <thread>
 #include <algorithm>
+#include <numeric>
 
 struct Query {
   int l = 0;
