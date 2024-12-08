@@ -4,14 +4,12 @@
 #include <future>
 #include <thread>
 
-struct Query
-{
+struct Query {
   int l = 0;
   int r = 0;
 };
 
-static void build_tree(std::vector<int>& tree, const std::vector<int>& arr, int node, int start, int end)
-{
+static void build_tree(std::vector<int>& tree, const std::vector<int>& arr, int node, int start, int end) {
   if (start == end) {
     tree[node] = arr[start];
     return;
@@ -23,8 +21,7 @@ static void build_tree(std::vector<int>& tree, const std::vector<int>& arr, int 
   tree[node] = std::gcd(tree[2 * node + 1], tree[2 * node + 2]);
 }
 
-static int query_tree(const std::vector<int>& tree, int node, int start, int end, int l, int r)
-{
+static int query_tree(const std::vector<int>& tree, int node, int start, int end, int l, int r) {
   if (l > end || r < start) { return 0; }
   if (l <= start && r >= end) { return tree[node]; }
   
@@ -38,9 +35,7 @@ static int query_tree(const std::vector<int>& tree, int node, int start, int end
   return std::gcd(left, right);
 }
 
-static std::vector<int> process_batch(const std::vector<int>& tree, const std::vector<Query>& queries,
-                                      int n, int start, int end)
-{
+static std::vector<int> process_batch(const std::vector<int>& tree, const std::vector<Query>& queries, int n, int start, int end) {
   std::vector<int> results(end - start);
   for (int i = start; i < end; ++i) {
     const auto& [l, r] = queries[i];
@@ -50,8 +45,7 @@ static std::vector<int> process_batch(const std::vector<int>& tree, const std::v
   return results;
 }
 
-int main()
-{
+int main() {
   std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
   std::cout.tie(nullptr);
